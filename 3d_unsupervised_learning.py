@@ -17,13 +17,7 @@ fig = plt.figure(figsize=(12, 8))
 ax = fig.add_subplot(111, projection='3d')
 
 # 各数字ごとに異なる色でプロット
-scatter = ax.scatter(u[:, 0], u[:, 1], u[:, 2], cmap='tab10', s=10)
-
-# 凡例の作成
-legend_elements = [plt.Line2D([0], [0], marker='o', color='w', label=str(i), 
-                   markerfacecolor=plt.cm.tab10(i/10), markersize=10)
-                   for i in range(10)]
-ax.legend(handles=legend_elements, title="Digits", loc="center left", bbox_to_anchor=(1.1, 0.5))
+scatter = ax.scatter(u[:, 0], u[:, 1], u[:, 2], c=digits.target, cmap='tab10', s=10)
 
 ax.set_title('3D UMAP embedding of the Digits dataset')
 ax.set_xlabel('UMAP1')
